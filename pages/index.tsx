@@ -4,11 +4,11 @@ import Typography from "@mui/material/Typography";
 import { ObjectId } from "mongodb";
 import { ChangeEvent, FC, useEffect, useState } from "react";
 
-import PostMarketItemDialog from "../../components/PostMarketItemDialog";
-import axiosInstance from "../../util/axiosInstance";
-import { MarketItem } from "../../util/types";
-import MarketCard from "../../components/MarketCard";
-import FCLayout from "./../../components/FCLayout";
+import PostMarketItemDialog from "../components/PostMarketItemDialog";
+import axiosInstance from "../util/axiosInstance";
+import { MarketItem } from "../util/types";
+import MarketCard from "../components/MarketCard";
+import FCLayout from "../components/FCLayout";
 
 interface MarketProps {}
 
