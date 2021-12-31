@@ -1,20 +1,8 @@
+import MarketItemModel from "../../../models/MarketItemModel";
+import connectDB from "./../../../middleware/mongodb";
+
 import type { NextApiRequest, NextApiResponse } from "next";
-import { InsertOneResult, ObjectId } from "mongodb";
-import { getMongoClient } from "../../../util/mongo";
-
-type ResponseData =
-  | {
-      acknowledged: boolean;
-      insertedId: ObjectId;
-    }
-  | {
-      error: string;
-    };
-
-export default function handler(
-  req: NextApiRequest,
-  res: NextApiResponse<ResponseData>
-) {
+const handler = (req: NextApiRequest, res: NextApiResponse) => {
   if (req.method !== "POST") {
     res.status(400).send({ error: "Invalid request method (expected POST)." });
     return;
@@ -35,13 +23,10 @@ export default function handler(
     password: req.body.item.password,
   };
 
-  const mongoClient = getMongoClient();
-  mongoClient.connect(async (err) => {
-    const collection = mongoClient.db("market").collection("items");
-    await collection.insertOne(data, (err, result) => {
-      if (err) throw err;
-      res.status(200).json(result as InsertOneResult<ResponseData>);
-    });
-    mongoClient.close();
+  MarketItemModel.create(data, (err, result) => {
+    if (err) throw err;
+    res.status(200).json(result);
   });
-}
+};
+
+export default connectDB(handler);
