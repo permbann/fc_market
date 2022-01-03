@@ -1,22 +1,22 @@
-import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
-import Grid from "@mui/material/Grid";
-import Paper from "@mui/material/Paper";
-import Table from "@mui/material/Table";
-import TableBody from "@mui/material/TableBody";
-import TableCell from "@mui/material/TableCell";
-import TableContainer from "@mui/material/TableContainer";
-import TableHead from "@mui/material/TableHead";
-import TableRow from "@mui/material/TableRow";
-import TextField from "@mui/material/TextField";
-import Typography from "@mui/material/Typography";
-import { ChangeEvent, FC, useEffect, useState } from "react";
+import Box from '@mui/material/Box';
+import Button from '@mui/material/Button';
+import Grid from '@mui/material/Grid';
+import Paper from '@mui/material/Paper';
+import Table from '@mui/material/Table';
+import TableBody from '@mui/material/TableBody';
+import TableCell from '@mui/material/TableCell';
+import TableContainer from '@mui/material/TableContainer';
+import TableHead from '@mui/material/TableHead';
+import TableRow from '@mui/material/TableRow';
+import TextField from '@mui/material/TextField';
+import Typography from '@mui/material/Typography';
+import {ChangeEvent, FC, useState} from 'react';
 
-import { getRandomSet } from "./../../util/randomInt";
+import {getRandomSet} from './../../util/randomInt';
 
 interface SingleRandomRollerProps {}
 
-const MultipleRandomRoller: FC<SingleRandomRollerProps> = (props) => {
+const MultipleRandomRoller: FC<SingleRandomRollerProps> = () => {
   const [maxRoll, setMaxRoll] = useState<number | undefined>(undefined);
   const [resultCount, setResultCount] = useState<number | undefined>(undefined);
   const [rolls, setRolls] = useState<number[] | undefined>(undefined);
@@ -40,10 +40,10 @@ const MultipleRandomRoller: FC<SingleRandomRollerProps> = (props) => {
   return (
     <Paper
       sx={{
-        backgroundColor: "primary.light",
+        backgroundColor: 'primary.light',
         p: 2,
         m: 4,
-        minHeight: "80vh",
+        minHeight: '80vh',
       }}
       elevation={4}
     >
@@ -55,10 +55,10 @@ const MultipleRandomRoller: FC<SingleRandomRollerProps> = (props) => {
           <TextField
             fullWidth
             label="Max Roll"
-            value={maxRoll === undefined ? "" : maxRoll}
+            value={maxRoll === undefined ? '' : maxRoll}
             onChange={handleSetMaxRoll}
             type="number"
-            placeholder={"Max number."}
+            placeholder={'Max number.'}
             InputLabelProps={{
               shrink: true,
             }}
@@ -68,10 +68,10 @@ const MultipleRandomRoller: FC<SingleRandomRollerProps> = (props) => {
           <TextField
             fullWidth
             label="Result count"
-            value={resultCount === undefined ? "" : resultCount}
+            value={resultCount === undefined ? '' : resultCount}
             onChange={handleSetResultCount}
             type="number"
-            placeholder={"Number of results."}
+            placeholder={'Number of results.'}
             InputLabelProps={{
               shrink: true,
             }}
@@ -80,23 +80,23 @@ const MultipleRandomRoller: FC<SingleRandomRollerProps> = (props) => {
         <Grid item xs={12} textAlign="center">
           <Button
             variant="contained"
-            sx={{ backgroundColor: "secondary.light", pt: 1.5 }}
+            sx={{backgroundColor: 'secondary.light', pt: 1.5}}
             onClick={handleSetRoll}
             disabled={!maxRoll || !resultCount || resultCount > maxRoll}
           >
             <Typography variant="h3" fontSize={18}>
-              {maxRoll && resultCount && resultCount > maxRoll
-                ? "Result count must be lower than max roll."
-                : "Let it Roll"}
+              {maxRoll && resultCount && resultCount > maxRoll ?
+                'Result count must be lower than max roll.' :
+                'Let it Roll'}
             </Typography>
           </Button>
         </Grid>
         <Grid item xs={8} textAlign="center">
-          <Box sx={{ backgroundColor: "primary.dark", m: 2, p: 2 }}>
+          <Box sx={{backgroundColor: 'primary.dark', m: 2, p: 2}}>
             {rolls ? (
               <TableContainer
                 component={Paper}
-                sx={{ backgroundColor: "primary.main" }}
+                sx={{backgroundColor: 'primary.main'}}
               >
                 <Table>
                   <TableHead>
@@ -106,9 +106,9 @@ const MultipleRandomRoller: FC<SingleRandomRollerProps> = (props) => {
                   <TableBody>
                     {rolls.map((roll, index) => {
                       const style =
-                        index % 2 === 0
-                          ? { backgroundColor: "secondray.dark" }
-                          : { backgroundColor: "secondray.light" };
+                        index % 2 === 0 ?
+                          {backgroundColor: 'secondray.dark'} :
+                          {backgroundColor: 'secondray.light'};
                       return (
                         <TableRow key={index}>
                           <TableCell>{index + 1}.</TableCell>

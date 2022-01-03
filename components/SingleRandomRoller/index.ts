@@ -1,3 +1,3 @@
-import SingleRandomRoller from "./SingleRandomRoller";
+import SingleRandomRoller from './SingleRandomRoller';
 
 export default SingleRandomRoller;

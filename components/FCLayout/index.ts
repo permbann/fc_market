@@ -1,3 +1,3 @@
-import { FCLayout } from "./FCLayout";
+import FCLayout from './FCLayout';
 
 export default FCLayout;

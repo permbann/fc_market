@@ -1,20 +1,20 @@
 export const getRandomInt = (min: number, max: number) => {
   min = Math.ceil(min);
   max = Math.floor(max);
-  return Math.floor(Math.random() * (max - min) + min); //The maximum is exclusive and the minimum is inclusive
+  return Math.floor(Math.random() * (max - min) + min); // The maximum is exclusive and the minimum is inclusive
 };
 
 export const getRandomSet = (
-  maxRoll: number,
-  resultCount: number
+    maxRoll: number,
+    resultCount: number,
 ): number[] => {
   if (resultCount > maxRoll) {
     return [];
   }
-  let rolls = Array(resultCount - 1)
-    .fill(1)
-    .map(() => getRandomInt(1, maxRoll + 1));
-  var rollsSet = new Set(rolls);
+  const rolls = Array(resultCount - 1)
+      .fill(1)
+      .map(() => getRandomInt(1, maxRoll + 1));
+  const rollsSet = new Set(rolls);
   if (rolls.length === rollsSet.size) {
     return rolls;
   }

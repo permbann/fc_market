@@ -1,16 +1,16 @@
-import { Paper } from "@mui/material";
-import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
-import Grid from "@mui/material/Grid";
-import TextField from "@mui/material/TextField";
-import Typography from "@mui/material/Typography";
-import { ChangeEvent, FC, useEffect, useState } from "react";
+import {Paper} from '@mui/material';
+import Box from '@mui/material/Box';
+import Button from '@mui/material/Button';
+import Grid from '@mui/material/Grid';
+import TextField from '@mui/material/TextField';
+import Typography from '@mui/material/Typography';
+import {ChangeEvent, FC, useState} from 'react';
 
-import { getRandomInt } from "./../../util/randomInt";
+import {getRandomInt} from './../../util/randomInt';
 
 interface SingleRandomRollerProps {}
 
-const SingleRandomRoller: FC<SingleRandomRollerProps> = (props) => {
+const SingleRandomRoller: FC<SingleRandomRollerProps> = () => {
   const [maxRoll, setMaxRoll] = useState<number | undefined>(undefined);
   const [roll, setRoll] = useState<number | undefined>(undefined);
   const [lastRoll, setLastRoll] = useState<number | undefined>(undefined);
@@ -32,10 +32,10 @@ const SingleRandomRoller: FC<SingleRandomRollerProps> = (props) => {
   return (
     <Paper
       sx={{
-        backgroundColor: "primary.light",
+        backgroundColor: 'primary.light',
         p: 2,
         m: 4,
-        minHeight: "80vh",
+        minHeight: '80vh',
       }}
       elevation={4}
     >
@@ -47,10 +47,10 @@ const SingleRandomRoller: FC<SingleRandomRollerProps> = (props) => {
           <TextField
             fullWidth
             label="Max Roll"
-            value={maxRoll === undefined ? "" : maxRoll}
+            value={maxRoll === undefined ? '' : maxRoll}
             onChange={handleSetMaxRoll}
             type="number"
-            placeholder={"Max number."}
+            placeholder={'Max number.'}
             InputLabelProps={{
               shrink: true,
             }}
@@ -59,7 +59,7 @@ const SingleRandomRoller: FC<SingleRandomRollerProps> = (props) => {
         <Grid item xs={12} textAlign="center">
           <Button
             variant="contained"
-            sx={{ backgroundColor: "secondary.light", pt: 1.5 }}
+            sx={{backgroundColor: 'secondary.light', pt: 1.5}}
             onClick={handleSetRoll}
             disabled={!maxRoll}
           >
@@ -69,11 +69,11 @@ const SingleRandomRoller: FC<SingleRandomRollerProps> = (props) => {
           </Button>
         </Grid>
         <Grid item xs={6} textAlign="center">
-          <Box sx={{ backgroundColor: "primary.dark", m: 2, p: 2 }}>
+          <Box sx={{backgroundColor: 'primary.dark', m: 2, p: 2}}>
             <Typography variant="h2" fontSize={58}>
-              {roll
-                ? `Rolled: ${roll}`
-                : "Set the maximum roll and hit the Button."}
+              {roll ?
+                `Rolled: ${roll}` :
+                'Set the maximum roll and hit the Button.'}
             </Typography>
             {lastRoll && (
               <Typography variant="h2" fontSize={48}>

@@ -1,31 +1,24 @@
-import Box from "@mui/material/Box";
-import DialogTitle from "@mui/material/DialogTitle";
-import IconButton from "@mui/material/IconButton";
-import Button from "@mui/material/Button";
-import Dialog from "@mui/material/Dialog";
-import DialogActions from "@mui/material/DialogActions";
-import DialogContent from "@mui/material/DialogContent";
-import Grid from "@mui/material/Grid";
-import Typography from "@mui/material/Typography";
-import CloseIcon from "@mui/icons-material/Close";
-import { ChangeEvent, FC, useState } from "react";
+import CloseIcon from '@mui/icons-material/Close';
+import Box from '@mui/material/Box';
+import Button from '@mui/material/Button';
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import DialogTitle from '@mui/material/DialogTitle';
+import Grid from '@mui/material/Grid';
+import IconButton from '@mui/material/IconButton';
+import Typography from '@mui/material/Typography';
+import {ChangeEvent, FC, useState} from 'react';
 
-import { ItemType, MarketItem, Category } from "../../util/types";
-import {
-  armor,
-  armorWeights,
-  jewellery,
-  jewelleryWeights,
-  weapons,
-  weaponWeights,
-} from "../../util/itemTypeLists";
-import NameInput from "./subcomponents/NameInput";
-import TypeInput from "./subcomponents/TypeInput";
-import CategoryInput from "./subcomponents/CategoryInput";
-import LinkInput from "./subcomponents/LinkInput";
-import PriceInput from "./subcomponents/PriceInput";
-import SellerNameInput from "./subcomponents/SellerNameInput";
-import DeletePasswordInput from "./subcomponents/DeletePasswordInput";
+import {armor, armorWeights, jewellery, jewelleryWeights, weapons, weaponWeights} from '../../util/itemTypeLists';
+import {Category, ItemType, MarketItem} from '../../util/types';
+import CategoryInput from './subcomponents/CategoryInput';
+import DeletePasswordInput from './subcomponents/DeletePasswordInput';
+import LinkInput from './subcomponents/LinkInput';
+import NameInput from './subcomponents/NameInput';
+import PriceInput from './subcomponents/PriceInput';
+import SellerNameInput from './subcomponents/SellerNameInput';
+import TypeInput from './subcomponents/TypeInput';
 
 interface PostMarketItemDialogProps {
   open: boolean;
@@ -39,13 +32,13 @@ const PostMarketItemDialog: FC<PostMarketItemDialogProps> = ({
   handlePost,
 }) => {
   const [newItem, setNewItem] = useState<MarketItem>({
-    name: "",
+    name: '',
     type: undefined,
     category: undefined,
-    link: "",
+    link: '',
     price: -1,
-    seller: "",
-    password: "",
+    seller: '',
+    password: '',
   });
 
   const newItemDataAvailable = () => {
@@ -60,58 +53,58 @@ const PostMarketItemDialog: FC<PostMarketItemDialogProps> = ({
   };
 
   const handleSetItemName = (event: ChangeEvent<HTMLInputElement>) => {
-    let item = { ...newItem };
+    const item = {...newItem};
     item.name = event.target.value;
     setNewItem(item);
   };
 
   const handleSetItemType = (event: ChangeEvent<HTMLInputElement>) => {
-    let item = { ...newItem };
+    const item = {...newItem};
     item.type = event.target.value as ItemType;
     if (armor.includes(item.type) && !armorWeights.includes(newItem.category)) {
-      item.category = "MEDIUM";
+      item.category = 'MEDIUM';
     }
     if (
       jewellery.includes(item.type) &&
       !jewelleryWeights.includes(newItem.category)
     ) {
-      item.category = "JEWELLERY";
+      item.category = 'JEWELLERY';
     }
     if (
       weapons.includes(item.type) &&
       !weaponWeights.includes(newItem.category)
     ) {
-      item.category = "WEAPON";
+      item.category = 'WEAPON';
     }
     setNewItem(item);
   };
 
   const handleSetItemCategory = (event: ChangeEvent<HTMLInputElement>) => {
-    let item = { ...newItem };
+    const item = {...newItem};
     item.category = event.target.value as Category;
     setNewItem(item);
   };
 
   const handleSetItemLink = (event: ChangeEvent<HTMLInputElement>) => {
-    let item = { ...newItem };
+    const item = {...newItem};
     item.link = event.target.value;
     setNewItem(item);
   };
 
   const handleSetItemPrice = (event: ChangeEvent<HTMLInputElement>) => {
-    let item = { ...newItem };
+    const item = {...newItem};
     item.price = Math.abs(parseInt(event.target.value));
     setNewItem(item);
   };
 
   const handleSetItemSeller = (event: ChangeEvent<HTMLInputElement>) => {
-    let item = { ...newItem };
+    const item = {...newItem};
     item.seller = event.target.value;
     setNewItem(item);
   };
 
   const handleSetItemPassword = (event: ChangeEvent<HTMLInputElement>) => {
-    let item = { ...newItem };
+    const item = {...newItem};
     item.password = event.target.value;
     setNewItem(item);
   };
@@ -119,20 +112,20 @@ const PostMarketItemDialog: FC<PostMarketItemDialogProps> = ({
   const handlePostAndReset = () => {
     handlePost(newItem);
     setNewItem({
-      name: "",
+      name: '',
       type: undefined,
       category: undefined,
-      link: "",
+      link: '',
       price: 0,
-      seller: "",
-      password: "",
+      seller: '',
+      password: '',
     });
   };
 
   return (
     <Dialog open={open} maxWidth="lg">
-      <Box sx={{ backgroundColor: "primary.light", width: "800px" }}>
-        <DialogTitle sx={{ p: 1 }}>
+      <Box sx={{backgroundColor: 'primary.light', width: '800px'}}>
+        <DialogTitle sx={{p: 1}}>
           <Typography fontSize={24} textAlign="center" color="secondary.dark">
             Add new Item to the Clan Market
           </Typography>
@@ -140,7 +133,7 @@ const PostMarketItemDialog: FC<PostMarketItemDialogProps> = ({
             aria-label="close"
             onClick={handleClose}
             sx={{
-              position: "absolute",
+              position: 'absolute',
               right: 8,
               top: 8,
               color: (theme) => theme.palette.grey[500],
@@ -150,7 +143,7 @@ const PostMarketItemDialog: FC<PostMarketItemDialogProps> = ({
           </IconButton>
         </DialogTitle>
         <DialogContent>
-          <Grid container spacing={2} sx={{ pt: 2 }}>
+          <Grid container spacing={2} sx={{pt: 2}}>
             <Grid item xs={12}>
               <NameInput
                 value={newItem.name}
@@ -201,7 +194,7 @@ const PostMarketItemDialog: FC<PostMarketItemDialogProps> = ({
             <Button
               variant="contained"
               onClick={handlePostAndReset}
-              sx={{ backgroundColor: "primary.dark" }}
+              sx={{backgroundColor: 'primary.dark'}}
               disabled={newItemDataAvailable()}
             >
               <Typography variant="h6" fontSize={18}>

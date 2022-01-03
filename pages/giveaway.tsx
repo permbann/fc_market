@@ -1,13 +1,13 @@
-import Grid from "@mui/material/Grid";
-import { ChangeEvent, FC, useEffect, useState } from "react";
+import Grid from '@mui/material/Grid';
+import {FC} from 'react';
 
-import SingleRandomRoller from "../components/SingleRandomRoller";
-import FCLayout from "./../components/FCLayout";
-import MultipleRandomRoller from "./../components/MultipleRandomRoller/MultipleRandomRoller";
+import SingleRandomRoller from '../components/SingleRandomRoller';
+import FCLayout from './../components/FCLayout';
+import MultipleRandomRoller from './../components/MultipleRandomRoller/MultipleRandomRoller';
 
 interface GiveawayProps {}
 
-const Giveaway: FC<GiveawayProps> = (props) => {
+const Giveaway: FC<GiveawayProps> = () => {
   return (
     <FCLayout>
       <Grid container>

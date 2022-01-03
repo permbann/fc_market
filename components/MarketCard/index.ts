@@ -1,3 +1,3 @@
-import MarketCard from "./MarketCard";
+import MarketCard from './MarketCard';
 
 export default MarketCard;

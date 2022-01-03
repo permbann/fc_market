@@ -1,5 +1,5 @@
-import TextField from "@mui/material/TextField";
-import { ChangeEvent, FC } from "react";
+import TextField from '@mui/material/TextField';
+import {ChangeEvent, FC} from 'react';
 
 interface SellerNameInputProps {
   handleSetSeller: (event: ChangeEvent<HTMLInputElement>) => void;
@@ -14,7 +14,7 @@ const SellerNameInput: FC<SellerNameInputProps> = ({
     <TextField
       fullWidth
       label="Seller"
-      placeholder={"Your discord name."}
+      placeholder={'Your discord name.'}
       value={value}
       onChange={handleSetSeller}
       InputLabelProps={{

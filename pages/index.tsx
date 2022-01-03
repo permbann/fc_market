@@ -1,23 +1,23 @@
-import Button from "@mui/material/Button";
-import Grid from "@mui/material/Grid";
-import Typography from "@mui/material/Typography";
-import { ObjectId } from "mongodb";
-import { ChangeEvent, FC, useEffect, useState } from "react";
+import Button from '@mui/material/Button';
+import Grid from '@mui/material/Grid';
+import Typography from '@mui/material/Typography';
+import {ObjectId} from 'mongodb';
+import {FC, useEffect, useState} from 'react';
 
-import PostMarketItemDialog from "../components/PostMarketItemDialog";
-import axiosInstance from "../util/axiosInstance";
-import { MarketItem } from "../util/types";
-import MarketCard from "../components/MarketCard";
-import FCLayout from "../components/FCLayout";
+import FCLayout from '../components/FCLayout';
+import MarketCard from '../components/MarketCard';
+import PostMarketItemDialog from '../components/PostMarketItemDialog';
+import axiosInstance from '../util/axiosInstance';
+import {MarketItem} from '../util/types';
 
 interface MarketProps {}
 
-const Market: FC<MarketProps> = (props) => {
+const Market: FC<MarketProps> = () => {
   const [marketItems, setMarketItems] = useState<MarketItem[]>([]);
   const [openAddItem, setOpenAddItem] = useState(false);
 
   const queryMarketItems = () => {
-    axiosInstance.get("/market/items").then((res) => {
+    axiosInstance.get('/market/items').then((res) => {
       setMarketItems(res.data);
     });
   };
@@ -36,7 +36,7 @@ const Market: FC<MarketProps> = (props) => {
   };
 
   const handlePostItem = async (item: MarketItem) => {
-    await axiosInstance.post("/market/create", { item: item });
+    await axiosInstance.post('/market/create', {item: item});
     queryMarketItems();
     setOpenAddItem(false);
   };
@@ -51,7 +51,7 @@ const Market: FC<MarketProps> = (props) => {
         <Grid item xs={12} textAlign="center">
           <Button
             variant="contained"
-            sx={{ backgroundColor: "secondary.light", pt: 1.5 }}
+            sx={{backgroundColor: 'secondary.light', pt: 1.5}}
             onClick={handleOpenAddItemDialog}
           >
             <Typography variant="h3" fontSize={18}>

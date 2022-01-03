@@ -3,7 +3,7 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import FormLabel from '@mui/material/FormLabel';
 import Radio from '@mui/material/Radio';
 import RadioGroup from '@mui/material/RadioGroup';
-import { ChangeEvent, FC } from 'react';
+import {ChangeEvent, FC} from 'react';
 
 import {
   armor,
@@ -14,7 +14,7 @@ import {
   weapons,
   weaponWeights,
 } from '../../../util/itemTypeLists';
-import { Category, ItemType } from '../../../util/types';
+import {Category, ItemType} from '../../../util/types';
 
 interface CategoryInputProps {
   handleSetCategory: (event: ChangeEvent<HTMLInputElement>) => void;
@@ -48,7 +48,7 @@ const CategoryInput: FC<CategoryInputProps> = ({
       <FormLabel component="legend">Item Category</FormLabel>
       <RadioGroup
         row
-        value={value === undefined ? "" : value}
+        value={value === undefined ? '' : value}
         onChange={handleSetCategory}
       >
         {itemWeights.map((itemWeight) => (
@@ -56,9 +56,9 @@ const CategoryInput: FC<CategoryInputProps> = ({
             key={itemWeight}
             value={itemWeight}
             control={<Radio />}
-            label={itemWeight || ""}
+            label={itemWeight || ''}
             disabled={radioDisabled(itemWeight)}
-            sx={{ width: "12em" }}
+            sx={{width: '12em'}}
           />
         ))}
       </RadioGroup>

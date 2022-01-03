@@ -1,5 +1,5 @@
-import TextField from "@mui/material/TextField";
-import { ChangeEvent, FC } from "react";
+import TextField from '@mui/material/TextField';
+import {ChangeEvent, FC} from 'react';
 
 interface DeletePasswordInputProps {
   handleSetPassword: (event: ChangeEvent<HTMLInputElement>) => void;
@@ -15,7 +15,7 @@ const DeletePasswordInput: FC<DeletePasswordInputProps> = ({
       fullWidth
       label="Deletion Password"
       placeholder={
-        "Enter a password. Item can only be deleted with this password."
+        'Enter a password. Item can only be deleted with this password.'
       }
       value={value}
       onChange={handleSetPassword}

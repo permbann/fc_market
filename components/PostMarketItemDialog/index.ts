@@ -1,3 +1,3 @@
-import PostMarketItemDialog from "./PostMarketItemDialog";
+import PostMarketItemDialog from './PostMarketItemDialog';
 
 export default PostMarketItemDialog;

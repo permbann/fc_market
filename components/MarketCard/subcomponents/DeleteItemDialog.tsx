@@ -1,15 +1,15 @@
-import Box from "@mui/material/Box";
-import Dialog from "@mui/material/Dialog";
-import DialogTitle from "@mui/material/DialogTitle";
-import IconButton from "@mui/material/IconButton";
-import Typography from "@mui/material/Typography";
-import CloseIcon from "@mui/icons-material/Close";
-import { ChangeEvent, FC, useState } from "react";
-import DialogContent from "@mui/material/DialogContent";
-import Grid from "@mui/material/Grid";
-import TextField from "@mui/material/TextField";
-import DialogActions from "@mui/material/DialogActions";
-import Button from "@mui/material/Button";
+import CloseIcon from '@mui/icons-material/Close';
+import Box from '@mui/material/Box';
+import Button from '@mui/material/Button';
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import DialogTitle from '@mui/material/DialogTitle';
+import Grid from '@mui/material/Grid';
+import IconButton from '@mui/material/IconButton';
+import TextField from '@mui/material/TextField';
+import Typography from '@mui/material/Typography';
+import {ChangeEvent, FC, useState} from 'react';
 
 interface DeleteItemDialogProps {
   open: boolean;
@@ -24,13 +24,13 @@ const DeleteItemDialog: FC<DeleteItemDialogProps> = ({
   itemPassword,
   handleDelete,
 }) => {
-  const [deletePassword, setDeletePassword] = useState("");
+  const [deletePassword, setDeletePassword] = useState('');
   const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
     setDeletePassword(event.target.value);
   };
   return (
     <Dialog open={open} maxWidth="lg">
-      <Box sx={{ backgroundColor: "primary.dark", width: "800px" }}>
+      <Box sx={{backgroundColor: 'primary.dark', width: '800px'}}>
         <DialogTitle>
           <Typography fontSize={24} textAlign="center" color="secondary.light">
             Remove Item from the Clan Market
@@ -39,7 +39,7 @@ const DeleteItemDialog: FC<DeleteItemDialogProps> = ({
             aria-label="close"
             onClick={handleClose}
             sx={{
-              position: "absolute",
+              position: 'absolute',
               right: 8,
               top: 8,
               color: (theme) => theme.palette.grey[500],
@@ -49,12 +49,12 @@ const DeleteItemDialog: FC<DeleteItemDialogProps> = ({
           </IconButton>
         </DialogTitle>
         <DialogContent>
-          <Grid container spacing={2} sx={{ pt: 1 }}>
+          <Grid container spacing={2} sx={{pt: 1}}>
             <Grid item xs={12}>
               <TextField
                 fullWidth
                 label="Deletion Password"
-                placeholder={"Enter the items deletion password."}
+                placeholder={'Enter the items deletion password.'}
                 value={deletePassword}
                 onChange={handleInputChange}
                 InputLabelProps={{
@@ -80,7 +80,7 @@ const DeleteItemDialog: FC<DeleteItemDialogProps> = ({
             <Button
               variant="contained"
               onClick={handleDelete}
-              sx={{ backgroundColor: "secondary.dark" }}
+              sx={{backgroundColor: 'secondary.dark'}}
               disabled={
                 !(
                   deletePassword === itemPassword ||

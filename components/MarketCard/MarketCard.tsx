@@ -1,21 +1,21 @@
-import { Typography } from "@mui/material";
-import Button from "@mui/material/Button";
-import Collapse from "@mui/material/Collapse";
-import Grid from "@mui/material/Grid";
-import Paper from "@mui/material/Paper";
-import { ObjectId } from "mongodb";
-import { FC, useState } from "react";
+import {Typography} from '@mui/material';
+import Button from '@mui/material/Button';
+import Collapse from '@mui/material/Collapse';
+import Grid from '@mui/material/Grid';
+import Paper from '@mui/material/Paper';
+import {ObjectId} from 'mongodb';
+import {FC, useState} from 'react';
 
-import { MarketItem } from "../../util/types";
-import ContactSellerAlert from "./subcomponents/ContactSellerAlert";
-import DeleteItemDialog from "./subcomponents/DeleteItemDialog";
+import {MarketItem} from '../../util/types';
+import ContactSellerAlert from './subcomponents/ContactSellerAlert';
+import DeleteItemDialog from './subcomponents/DeleteItemDialog';
 
 interface MarketCardProps {
   item: MarketItem;
   handleDelete: (itemId: string) => void;
 }
 
-const MarketCard: FC<MarketCardProps> = ({ item, handleDelete }) => {
+const MarketCard: FC<MarketCardProps> = ({item, handleDelete}) => {
   const [deleteIntent, setdeleteIntent] = useState(false);
   const [contactIntent, setcontactIntent] = useState(false);
 
@@ -48,10 +48,10 @@ const MarketCard: FC<MarketCardProps> = ({ item, handleDelete }) => {
       <Paper
         elevation={3}
         sx={{
-          width: "340px",
-          backgroundColor: "primary.light",
-          paddingLeft: "20px",
-          paddingRight: "20px",
+          width: '340px',
+          backgroundColor: 'primary.light',
+          paddingLeft: '20px',
+          paddingRight: '20px',
           // border: "5px solid #1F1F1A",
         }}
       >
@@ -81,7 +81,7 @@ const MarketCard: FC<MarketCardProps> = ({ item, handleDelete }) => {
           </Grid>
           <Grid item xs={4}>
             <Typography variant="h5" fontSize={16}>
-              Price:{" "}
+              Price:{' '}
             </Typography>
           </Grid>
           <Grid item xs={8}>
@@ -100,7 +100,7 @@ const MarketCard: FC<MarketCardProps> = ({ item, handleDelete }) => {
                     variant="h6"
                     fontSize={15}
                     color="secondary.main"
-                    sx={{ marginLeft: "1em" }}
+                    sx={{marginLeft: '1em'}}
                   >
                     {item.seller}
                   </Typography>

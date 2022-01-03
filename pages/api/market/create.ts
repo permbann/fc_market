@@ -1,15 +1,15 @@
-import MarketItemModel from "../../../models/MarketItemModel";
-import connectDB from "./../../../middleware/mongodb";
+import MarketItemModel from '../../../models/MarketItemModel';
+import connectDB from './../../../middleware/mongodb';
 
-import type { NextApiRequest, NextApiResponse } from "next";
+import type {NextApiRequest, NextApiResponse} from 'next';
 const handler = (req: NextApiRequest, res: NextApiResponse) => {
-  if (req.method !== "POST") {
-    res.status(400).send({ error: "Invalid request method (expected POST)." });
+  if (req.method !== 'POST') {
+    res.status(400).send({error: 'Invalid request method (expected POST).'});
     return;
   }
 
   if (req.headers.authorization != process.env.MARKET_API_KEY) {
-    res.status(403).send({ error: "Invalid secret." });
+    res.status(403).send({error: 'Invalid secret.'});
     return;
   }
 
