@@ -14,9 +14,7 @@ import {ChangeEvent, FC, useState} from 'react';
 
 import {getRandomSet} from './../../util/randomInt';
 
-interface SingleRandomRollerProps {}
-
-const MultipleRandomRoller: FC<SingleRandomRollerProps> = () => {
+const MultipleRandomRoller: FC = () => {
   const [maxRoll, setMaxRoll] = useState<number | undefined>(undefined);
   const [resultCount, setResultCount] = useState<number | undefined>(undefined);
   const [rolls, setRolls] = useState<number[] | undefined>(undefined);
@@ -105,10 +103,6 @@ const MultipleRandomRoller: FC<SingleRandomRollerProps> = () => {
                   </TableHead>
                   <TableBody>
                     {rolls.map((roll, index) => {
-                      const style =
-                        index % 2 === 0 ?
-                          {backgroundColor: 'secondray.dark'} :
-                          {backgroundColor: 'secondray.light'};
                       return (
                         <TableRow key={index}>
                           <TableCell>{index + 1}.</TableCell>

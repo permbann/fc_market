@@ -1,3 +1,3 @@
-import MultipleRandomRoller from "./MultipleRandomRoller";
+import MultipleRandomRoller from './MultipleRandomRoller';
 
 export default MultipleRandomRoller;

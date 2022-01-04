@@ -24,6 +24,7 @@
     "rules": {
         "linebreak-style": 0,
         "max-len": [1, 120, 2],
-        "react/react-in-jsx-scope": "off"
+        "react/react-in-jsx-scope": "off",
+        "require-jsdoc": "off"
     }
 }

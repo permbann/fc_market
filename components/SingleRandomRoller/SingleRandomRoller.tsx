@@ -8,9 +8,7 @@ import {ChangeEvent, FC, useState} from 'react';
 
 import {getRandomInt} from './../../util/randomInt';
 
-interface SingleRandomRollerProps {}
-
-const SingleRandomRoller: FC<SingleRandomRollerProps> = () => {
+const SingleRandomRoller: FC = () => {
   const [maxRoll, setMaxRoll] = useState<number | undefined>(undefined);
   const [roll, setRoll] = useState<number | undefined>(undefined);
   const [lastRoll, setLastRoll] = useState<number | undefined>(undefined);
