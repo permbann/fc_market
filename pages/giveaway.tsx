@@ -5,9 +5,7 @@ import SingleRandomRoller from '../components/SingleRandomRoller';
 import FCLayout from './../components/FCLayout';
 import MultipleRandomRoller from './../components/MultipleRandomRoller/MultipleRandomRoller';
 
-interface GiveawayProps {}
-
-const Giveaway: FC<GiveawayProps> = () => {
+const Giveaway: FC = () => {
   return (
     <FCLayout>
       <Grid container>

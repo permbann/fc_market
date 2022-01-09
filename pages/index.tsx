@@ -10,9 +10,7 @@ import PostMarketItemDialog from '../components/PostMarketItemDialog';
 import axiosInstance from '../util/axiosInstance';
 import {MarketItem} from '../util/types';
 
-interface MarketProps {}
-
-const Market: FC<MarketProps> = () => {
+const Market: FC = () => {
   const [marketItems, setMarketItems] = useState<MarketItem[]>([]);
   const [openAddItem, setOpenAddItem] = useState(false);
 
